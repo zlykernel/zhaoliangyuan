@@ -5,7 +5,6 @@ node_js:
 branches:
   only:
     - main                      # 只有 main 分支检出更改才触发 CI
-
 before_install:
   - export TZ='Asia/Shanghai'
   - npm install hexo-cli        # 安装 hexo
@@ -16,6 +15,8 @@ install:
 script:                         
   - hexo clean                  # 清除 hexo 缓存
   - hexo generate               # 生成静态文件
+    # 配置域名
+  - echo "www.zhaoliangyuan.com" >> public/CNAME
 
 deploy:
   - provider: pages
